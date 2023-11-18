@@ -452,10 +452,11 @@ function invertCase(str) {
  *   getStringFromTemplate('John','Doe') => 'Hello, John Doe!'
  *   getStringFromTemplate('Chuck','Norris') => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(/* firstName, lastName */) {
-  throw new Error('Not implemented');
-}
+function getStringFromTemplate(firstName, lastName) {
+  const greatings = `Hello, ${firstName} ${lastName}!`;
 
+  return greatings;
+}
 /**
  * Extracts a name from template string 'Hello, First_Name Last_Name!'.
  *
