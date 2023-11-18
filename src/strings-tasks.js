@@ -381,12 +381,23 @@ function isPalindrome(str) {
  * @returns {string} - The longest word in the sentence.
  *
  * @example:
- *   findLongestWord('The quick brown fox') => 'quick'
+ *   findLongestWord(.map((word) => word.length)) => 'quick'
  *   findLongestWord('A long and winding road') => 'winding'
  *   findLongestWord('No words here') => 'words'
  */
-function findLongestWord(/* sentence */) {
-  throw new Error('Not implemented');
+function findLongestWord(sentence) {
+  const sentceSlicer = sentence
+    .replace(/[^\w\s]|_/g, ' ')
+    .trim()
+    .split(' ');
+  const longestWordLength = Math.max(
+    ...sentceSlicer.map((word) => word.length)
+  );
+
+  const longestWord = sentceSlicer.find(
+    (word) => word.length === longestWordLength
+  );
+  return longestWord;
 }
 
 /**
@@ -399,10 +410,14 @@ function findLongestWord(/* sentence */) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
-}
+function reverseWords(str) {
+  const reverser = str
+    .split(' ')
+    .map((word) => word.split('').reverse().join(''))
+    .join(' ');
 
+  return reverser;
+}
 /**
  * Inverts the case of each character in the given string.
  *
@@ -414,8 +429,14 @@ function reverseWords(/* str */) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  const invertorChar = str
+    .split('')
+    .map((char) =>
+      char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()
+    )
+    .join('');
+  return invertorChar;
 }
 
 /**
