@@ -202,15 +202,17 @@ function removeLastOccurrences(str, value) {
  *   sumOfCodes() => 0
  */
 function sumOfCodes(str) {
-  if (typeof str !== 'string') {
+  if (!str) {
     return 0;
   }
 
-  const arrSum = str.split('').reduce(function (acc, cur) {
-    return acc + cur.charCodeAt(0);
-  }, 0);
+  let sum = 0;
+  const arrForSum = str.split('');
+  for (let i = 0; i < arrForSum.length; i += 1) {
+    sum += arrForSum[i].charCodeAt(0);
+  }
 
-  return arrSum;
+  return sum;
 }
 
 /**
